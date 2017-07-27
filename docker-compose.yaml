@@ -1,0 +1,27 @@
+version: '3'
+services:
+  first:
+    build: .
+    volumes: 
+      - ./volume:/usr/share/nginx/html
+    restart: always
+  second:
+    image: nginx
+    ports:
+      - 80
+    volumes:
+      - ./volume:/usr/share/nginx/html
+
+
+
+
+
+
+
+
+
+
+
+
+
+

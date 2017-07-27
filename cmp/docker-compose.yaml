@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: . 
+    image: d
+    ports:
+      - 80
+    volumes:
+      - /root/cmp/data:/usr/share/nginx/html:rw

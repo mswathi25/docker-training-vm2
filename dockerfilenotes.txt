@@ -1,0 +1,55 @@
+﻿FROM centos 
+COPY transferred.txt / 
+ADD add.txt / 
+ADD https://www.genesys.com/index.html /src.txt 
+ENV var1 val1 
+
+
+version: '3' 
+services: 
+  first: 
+    build: . 
+    volumes: 
+      - ./volume:/usr/share/nginx/html 
+  second: 
+    image: nginx 
+    ports: 
+      - 80 
+    volumes: 
+- ./volume:/usr/share/nginx/html 
+
+78  apt-get install git 
+   79  git init 
+   80  git config --global user.name mswathi25 
+   81  git config --global user.email mswathi2595@gmail.com 
+   82  git add * 
+   83  git commit -m "test" 
+   84  git remote add origin https://github.com/mswathi25/build.git 
+   85  history 
+
+	 git push -u origin master
+
+docker-compose.yml – make container stateless[without data]
+
+
+version: '3' 
+services: 
+  frontend: 
+    image: wordpress:4.5 
+    ports: 
+      - 80 
+    volumes: 
+      - /testdir/wordpress:/var/www/html 
+    environment: 
+      WORDPRESS_DB_HOST: backend:3306 
+      WORDPRESS_DB_PASSWORD: abc@123 
+    links: 
+      - backend 
+  backend: 
+    image: mariadb 
+    environment: 
+      MYSQL_ROOT_PASSWORD: abc@123 
+    volumes: 
+      - /testdir/database:/var/lib/mysql 
+
+
